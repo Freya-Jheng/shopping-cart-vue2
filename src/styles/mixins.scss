@@ -1,0 +1,36 @@
+// @import './size.scss';
+
+@mixin pad-media {
+  @media all and (min-width: $pad-width) {
+    @content;
+  }
+}
+
+@mixin pc-media {
+  @media all and (min-width: $pc-width) {
+    @content;
+  }
+}
+
+@mixin flex ($direction, $justify, $align){
+  display: flex;
+  flex-direction: $direction;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin grid ($columns ,$rows, $gap) {
+  display: grid;
+  grid-template-columns: $columns;
+  grid-template-rows: $rows;
+  grid-gap: $gap;
+}
+
+@mixin getStepperNum($num) {
+  @for $i from 1 through $num {
+   &:nth-child(#{$i}) 
+   .circle-container::after {
+      content: "#{$i}"
+    }
+  }
+}
