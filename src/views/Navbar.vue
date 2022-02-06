@@ -18,11 +18,9 @@
       </nav>
       <div class="navbar-icons">
         <input type="checkbox" id="search-bar-input" class="search-bar-input">
-        <div class="search-box">
-          <input type="text" placeholder=" ex : 短裙" class="search-bar">
-        </div>
+        <input type="text" placeholder=" ex : 短裙" class="search-bar">
         <label for="search-bar-input" class="nav-icon search-icon">
-            <i class="fas fa-search"></i>
+          <i class="fas fa-search"></i>
         </label>
         <a href="#" class="nav-icon cart-icon">
           <i class="fas fa-shopping-cart"></i>
@@ -99,7 +97,6 @@ header {
     left: 50%;
     transform: translateX(-50%);
   }
-  
 
  .logo {
    position: absolute;
@@ -182,7 +179,7 @@ header {
       @include flex (row, space-between, center);
       margin-right: 2%;
       width: 15%;
-      gap: 20px;
+      gap: 35px;
     }
     .nav-icon {
       color: $black;
@@ -203,7 +200,7 @@ nav {
   background-color: $white;
   position: absolute;
   width: 100%;
-  height: 800%;
+  height: 850%;
   top: 100%;
   z-index: 10;
   opacity: 0;
@@ -280,31 +277,40 @@ nav {
     }
   }
 }
-.search-box {
-  @include flex (row, end, flex-start);
-  gap: 20px;
-  opacity: 0;
-  transform: scale(0, 1);
-  transform-origin: right;
-  .search-bar {
-    width: 150px;
-    height: 30px;
-    border: 1px solid $form-border;
-    border-radius: 4px;
-    &::placeholder {
-      color: $form-placeholder;
-    }
-  }
-}
-
 .search-bar-input {
   display: none;
   &:checked {
-    ~.search-box {
+    ~ .search-bar {
       opacity: 1;
       transform: scale(1, 1);
-      transition: transform 0.1s;
     }
   }
+}
+.search-bar {
+  position: absolute;
+  top: 180%;
+  @include pad-media {
+    top: 100%;
+    right: 0%;
+  }
+  @include pc-media {
+    top: 25%;
+    right: 18%;
+  }
+  width: 200px;
+  height: 30px;
+  border: 1px solid $form-border;
+  border-radius: 4px;
+  &::placeholder {
+    color: $form-placeholder;
+  }
+  opacity: 0;
+  transform: scale(1, 0);
+  @include pc-media {
+    transform: scale(0 ,1);
+    transform-origin: right;
+  }
+  transform-origin: top;
+  transition: transform 0.2s;
 }
 </style>

@@ -78,7 +78,6 @@ export default {
         price: 5298,
       },
       delivery: '',
-      // subTotal: 0,
     }
   },
   computed: {

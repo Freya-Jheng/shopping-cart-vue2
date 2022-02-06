@@ -32,17 +32,16 @@
 export default {
   name: 'shipping',
   props: {
-    initialDelivery: {
-      type: String,
-      required: true,
+    initialUserInform: {
+      type: Object,
       default: () => ({
-        delivery: '',
+        delivery: 'general',
       })
     }
   },
   data () {
     return {
-      delivery: this.initialDelivery,
+      delivery: this.initialUserInform.delivery,
     }
   },
   watch: {

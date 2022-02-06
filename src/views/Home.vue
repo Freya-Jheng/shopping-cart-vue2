@@ -5,7 +5,7 @@
     <div class="home-wrapper">
       <div class="forms">
         <form id="form-id" class="form-id">
-          <router-view :initial-delivery="userInform.form2.delivery"
+          <router-view :initial-userInform="userInform"
           @change-delivery="changeDeliveryContent"/>
         </form>
         <div class="buttons">
@@ -13,7 +13,7 @@
           <button @click.stop.prevent="goNextPage" class="btn next-to" type="button"><span>下一步</span>&rarr;</button>
         </div>
       </div>
-      <ShoppingCarts :initial-delivery="userInform.form2.delivery"/>
+      <ShoppingCarts :initial-delivery="userInform.delivery"/>
     </div>
     <Footer />
   </div>
@@ -37,32 +37,29 @@ export default {
     return {
       currentFormNumber: Number(this.$route.name),
       userInform: {
-        form1: {
-          gender: '',
-          name: '',
-          phoneNumber: '',
-          email: '',
-          city: '',
-          address: ''
-        },
-        form2: {
-          delivery:'general',
-        },
-        form3: {
-          creditName: '',
-          creditNumber: '',
-          validPeriod: '',
-          cvc: '',
-        }
+        gender: '',
+        name: '',
+        phoneNumber: '',
+        email: '',
+        city: '',
+        address: '',
+        delivery: 'general',
+        creditName: '',
+        creditNumber: '',
+        validPeriod: '',
+        cvc: '',
       }
     }
   },
   methods: {
+    renderData(e) {
+      this.userInform.gender = e
+    },
     changeDeliveryContent(e) {
       if (e === 'general') {
-        this.userInform.form2.delivery = 'general'
+        this.userInform.delivery = 'general'
       } else if (e === 'DHL') {
-        this.userInform.form2.delivery = 'DHL'
+        this.userInform.delivery = 'DHL'
       }
     },
     goNextPage () {

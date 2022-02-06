@@ -6,27 +6,27 @@
           <div class="form-container">
               <div class="form-row row-1 ">
                 <span class="form-name">稱謂</span>
-                <select name="salutation" id="form-space" class="form-space1" >
+                <select  name="salutation" id="form-space" class="form-space1">
                   <option selected class="option-1" value="先生" >先生</option>
                   <option value="小姐">小姐</option>
                 </select>
               </div>
               <div class="form-row row-2">
                 <span class="form-name">姓名</span>
-                <input class="form-space2" type="text" placeholder="請輸入姓名">
+                <input class="form-space2" type="text" placeholder="請輸入姓名" >
               </div>
               <div class="form-row row-3">
                 <span class="form-name">電話</span>
-                <input class="form-space" type="text" placeholder="請輸入行動電話">
+                <input class="form-space" type="text" placeholder="請輸入行動電話" >
               </div>
               <div class="form-row row-4">
                 <span class="form-name">Email</span>
-                <input class="form-space" type="text" placeholder="請輸入電子郵件">
+                <input class="form-space" type="text" placeholder="請輸入電子郵件" >
               </div>
               <div class="form-row row-5">
                 <span class="form-name">縣市</span>
-                <select name="living-place" id="form-space" class="form-space" required>
-                  <option  selected disabled ><span>請選擇縣市</span></option>
+                <select name="living-place" id="form-space" class="form-space" required >
+                  <option  selected value="請選擇縣市"><span>請選擇縣市</span></option>
                   <option  value="台北市">台北市</option>
                   <option  value="台中市">台中市</option>
                   <option  value="台南市">台南市</option>
@@ -36,7 +36,7 @@
               </div>
               <div class="form-row row-6">
                 <span class="form-name">地址</span>
-                <input class="form-space" type="text" placeholder="請輸入地址">
+                <input class="form-space" type="text" placeholder="請輸入地址" >
               </div>
           </div>
         </div>
