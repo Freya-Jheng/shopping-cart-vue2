@@ -6,10 +6,12 @@
       <div class="forms">
         <form id="form-id" class="form-id">
           <router-view :initial-userInform="userInform"
-          @change-delivery="changeDeliveryContent"/>
+          @change-delivery="changeDeliveryContent"
+          @render-new-data="renderNewDataContent"
+          @render-credit="renderCreditContent" />
         </form>
         <div class="buttons">
-          <button @click.stop.prevent="goPrePage" class="btn back-to" type="button" >&larr;<span>上一步</span></button>
+          <button v-if="currentFormNumber !== 1" @click.stop.prevent="goPrePage" class="btn back-to" type="button" >&larr;<span>上一步</span></button>
           <button @click.stop.prevent="goNextPage" class="btn next-to" type="button"><span>下一步</span>&rarr;</button>
         </div>
       </div>
@@ -52,8 +54,19 @@ export default {
     }
   },
   methods: {
-    renderData(e) {
-      this.userInform.gender = e
+    renderNewDataContent(e) {
+      this.userInform.gender = e.gender
+      this.userInform.name = e.name
+      this.userInform.phoneNumber = e.phoneNumber
+      this.userInform.email = e.email
+      this.userInform.city = e.city
+      this.userInform.address = e.address
+    },
+    renderCreditContent(e) {
+      this.userInform.creditName = e.creditName
+      this.userInform.creditNumber = e.creditNumber
+      this.userInform.validPeriod = e.validPeriod
+      this.userInform.cvc = e.cvc
     },
     changeDeliveryContent(e) {
       if (e === 'general') {
@@ -89,8 +102,20 @@ export default {
       if (this.currentFormNumber <= 1) {
         this.currentFormNumber = 1
       }
+    },
+    btnChangeStyle () {
+      const next = document.querySelector('.next-to')
+      if (this.currentFormNumber === 3) {
+        next.innerText = '確認下單'
+      }
+      if (this.currentFormNumber !== 3) {
+        next.innerText = '下一步'
+      }
     }
-  }
+  },
+  updated() {
+    this.btnChangeStyle()
+  },
 }
 </script>
 

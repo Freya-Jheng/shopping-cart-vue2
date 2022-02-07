@@ -6,25 +6,62 @@
           <div class="form-container">
             <div class="form-row row-1">
               <span class="form-name">持卡人姓名</span>
-              <input type="text" class="form-space" placeholder="John Doe">
+              <input type="text" class="form-space" placeholder="John Doe" v-model="newCreditData.creditName">
             </div>
             <div class="form-row row-2">
               <span class="form-name">卡號</span>
-              <input type="text" class="form-space" placeholder="1111 2222 3333 4444">
+              <input type="text" class="form-space" placeholder="1111 2222 3333 4444" v-model="newCreditData.creditNumber">
             </div>
             <div class="form-row row-3">
               <span class="form-name">有效期限</span>
-              <input type="text" class="form-space form-space3" placeholder="MM/YY" onfocus="(this.type='month')" onblur="(this.type='text')">
+              <input type="text" class="form-space form-space3" placeholder="MM/YY" onfocus="(this.type='month')" onblur="(this.type='text')" v-model="newCreditData.validPeriod">
             </div>
             <div class="form-row row-4">
               <span class="form-name">cvc / ccv</span>
-              <input type="text" class="form-space form-space3" placeholder="123">
+              <input type="text" class="form-space form-space3" placeholder="123" v-model="newCreditData.cvc">
             </div>
           </div>
         </div>
       </div>
   </form>
 </template>
+
+<script>
+export default {
+  name: 'payment',
+  props: {
+    initialUserInform: {
+      type: Object,
+      default: () => ({
+        creditName: '',
+        creditNumber: '',
+        validPeriod: '',
+        cvc: '',        
+      })
+    }
+  },
+  data () {
+    return {
+      newCreditData: {
+        creditName: this.initialUserInform.creditName,
+        creditNumber: this.initialUserInform.creditNumber,
+        validPeriod: this.initialUserInform.validPeriod,
+        cvc: this.initialUserInform.cvc,
+      },
+    }
+  },
+  watch: {
+    newCreditData: {
+      handler: function renderCredit() {
+        this.$emit('render-credit', this.newCreditData)
+        console.log('form 2')
+      }
+    },
+    deep: true,
+  }
+
+}
+</script>
 
 <style scoped lang="scss">
 @import '../styles/main.scss';
@@ -66,12 +103,4 @@ form {
     }
   }
 }
-
-
 </style>
-
-<script>
-export default {
-  name: 'payment',
-}
-</script>
