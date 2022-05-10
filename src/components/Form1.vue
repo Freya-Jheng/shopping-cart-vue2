@@ -131,6 +131,7 @@ export default {
     }
     .row-3, .row-4, .row-5, .row-6 {
       grid-column: 1/3;
+
     }
     @include pc-media {
       .row-1, .row-5 {
@@ -138,6 +139,9 @@ export default {
       }
       .row-2, .row-6 {
         grid-column: 2/5;
+        .form-name {
+          margin-left: 10%;
+        }
         .form-space, .form-space2 {
           width: 90%;
           margin-left: 10%;
