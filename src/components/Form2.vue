@@ -60,6 +60,9 @@ export default {
 form {
   width: 100%;
   .wrapper {
+    .inform-title {
+      color: var(--main-font-color);
+    }
     .methods {
       margin-top: 30px;
       width: 100%;
@@ -70,29 +73,32 @@ form {
         @include flex (row, flex-start, center);
         gap: 10px;
         padding: 10px;
-        border: 1px solid $deep-white;
+        border: 1px solid var(--main-bg-color);
         &:hover {
-          border: 1px solid $black;
+          border: 1px solid var(--main-font-color) ;
           border-radius: 4px;
         }
         input {
           -webkit-appearance: none;
           -moz-appearance: none;
           appearance: none;
+          cursor: pointer;
           width: 20px;
           height: 20px;
           border-radius: 50%;
-          border: 1px solid $black;
+          border: 1px solid var(--main-font-color);
           &:focus, &:checked {
-            border: 6px solid $black;
+            border: 6px solid var(--main-font-color);
           }
         }
         label {
+          cursor: pointer;
           font-size: 12px;
           font-weight: 400;
           width: 100%;
           @include flex (column, center, flex-start);
           gap: 3px;
+          color: var(--main-font-color);
           .top-content {
             width: 95%;
             @include flex (row, space-between, center);

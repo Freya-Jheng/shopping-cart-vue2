@@ -76,7 +76,6 @@ export default {
     newData: {
       handler: function renderNewData() {
         this.$emit('render-new-data', this.newData)
-        console.log('send out form 1')
       },
       deep: true,
     }
@@ -87,24 +86,30 @@ export default {
 <style scoped lang="scss">
 @import '../styles/main.scss';
 .address {
-  color: $form-font-color;
+  color: var(--main-font-color);
   font-size: 12px;
   font-weight: 700;
   width: 100%;
-  // border: 3px solid pink;
   @include pad-media {
     height: 450px;
   }
   .inform-title {
     margin-bottom: 20px;
-    color: $black;
+    color: var(--main-font-color);
   }
   .form-container {
-    // border: 2px solid blue;
     width: 100%;
     @include grid (45% 55%, repeat(5, 1fr), 10px);
     @include pc-media {
       @include grid (repeat(4, 25%), repeat(3, 1fr), 0px);
+    }
+    input[type="text"], textarea {
+      background-color : var(--main-bg-color); 
+    }
+    
+    select {
+      color: var(--main-font-color);
+      background-color: var(--main-bg-color);
     }
     .form-row {
       @include pc-media {
@@ -115,11 +120,12 @@ export default {
       @include flex (column, center, flex-start);
       .form-space, .form-space1, .form-space2 {
         height: 40px;
-        border: 1px solid $form-border;
+        border: 1px solid var(--form-border);
         border-radius: 4px;
         width: 100%;
+        background-color: var(--main-bg-color);
         &::placeholder {
-          color: $form-placeholder;
+          color: #{$gray-99999};
         }
       }
     }

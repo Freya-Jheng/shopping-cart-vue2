@@ -158,7 +158,7 @@ export default {
 }
 
 .shopping-cart {
-    background-color: $white;
+    background-color: var(--shoppingCart-bc-color);
     @include pc-media {
       width: 85%;
       height: 500px;
@@ -176,7 +176,7 @@ export default {
         font-weight: 700;
         font-family:'Noto Sans TC', sans-serif;
         line-height: 22px;
-        color: $black;
+        color: var(--main-font-color);
         margin-bottom: 30px;
       }
     }
@@ -214,7 +214,7 @@ export default {
         font-family: 'Noto Sans TC';
         line-height: 24px;
         font-weight: 400;
-        color: $black;
+        color: var(--main-font-color);
         .units-count {
           @include flex (
             row, flex-end , center
@@ -223,7 +223,7 @@ export default {
             width: 26px;
             height: 26px;
             color: $black;
-            background-color: $deep-white;
+            background-color: var(--unitBtn-color);
             border-radius: 50%;
             line-height: 26px;
             font-size: 25px;
@@ -260,7 +260,7 @@ export default {
         border-top: 1px solid $deep-white;
         font-size: 14px;
         font-weight: 400;
-        color: $black;
+        color: var(--main-font-color);
         line-height: 20px;
       }
     }

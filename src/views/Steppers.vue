@@ -1,25 +1,33 @@
 <template>
   <div class="main steppers">
-    <div class="main-title">
+    <div
+    class="main-title">
       <h1 class="title-checkout">結帳</h1>
     </div>
     <div class="stepper-panel">
       <div class="step-container">
-        <div class="step active">
+        <div :class="['step',{'active':currentFormNumber === 1, 'checked':currentFormNumber > 1}]">
           <div class=" circle-container"></div>
           <div class="connect-line"></div>
           <div class="label-container">
             寄送地址
           </div>
         </div>
-        <div class="step">
+        <div
+        :class="['step', {
+          'active' : currentFormNumber === 2, 'checked' : currentFormNumber > 2}]" >
           <div class="circle-container"></div>
           <div class="connect-line"></div>
           <div class="label-container">
             運送方式
           </div>
         </div>
-        <div class="step">
+        <div
+        :class="['step', {
+          'active': currentFormNumber === 3,
+          'checked': currentFormNumber > 3
+        }]"
+        >
           <div class="circle-container"></div>
           <div class="label-container">
             付款資訊
@@ -29,6 +37,18 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'Steppers',
+  props: {
+    currentFormNumber: {
+      type: Number,
+      required: true
+    }
+  }
+}
+</script>
 
 <style lang="scss" scoped>
 @import '../styles/main.scss';
@@ -61,9 +81,9 @@
         .circle-container {
           width: 32px;
           height: 32px;
-          background-color: $white;
-          border: 1px solid $step-original-color;
-          color: $step-original-color;
+          background-color: var(--stepNum-bc-color) ;
+          border: 1px solid var(--step-original-color);
+          color: var(--step-original-color);
           border-radius: 50%;
           font-size: 16px;
           font-weight: 700;
@@ -71,34 +91,34 @@
         }
         &.active {
           .circle-container::after{
-            color: $white;
+            color: #{$white};
           }
           .circle-container {
-            background-color: $black ;
-            border-color: $black ;
+            background-color: var(--stepCheck-bc-color) ;
+            border-color: var(--stepCheck-bc-color) ;
           }
           .label-container {
-            color: $black;
+            color: var(--main-font-color);
           }
           .connect-line {
-            background-color: $black;
+            background-color: var(--main-font-color);
           }
         }
         &.checked
         {
           .circle-container::after{
           content: "\2714";
-          color: $white;
+          color: #{$white};
           }
           .circle-container {
-            background-color: $black;
-            border-color: $black ;
+            background-color: var(--stepCheck-bc-color);
+            border-color: var(--stepCheck-bc-color) ;
           }
           .label-container {
-            color: $black;
+            color: var(--main-font-color);
           }
           .connect-line {
-            background-color: $black;
+            background-color: var(--main-font-color);
           }
           
         } 
@@ -115,7 +135,7 @@
             font-size: 16px;
             text-align: center;
             font-weight: 400;
-            color: $step-original-color;
+            color: var(--step-original-color);
           }
         }
         .connect-line {
@@ -126,7 +146,7 @@
           height: 1px;
           left: calc(100% + 32.25px);
           margin: 0 auto;
-          background-color: $step-original-color;
+          background-color: var(--step-original-color);
           @include pad-media {
             left: calc(325%);
           }

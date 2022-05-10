@@ -1,10 +1,11 @@
 <template>
   <div class="main">
     <Navbar />
-    <Steppers />
+    <Steppers :current-form-number="currentFormNumber"/>
     <div class="home-wrapper">
       <div class="forms">
-        <form id="form-id" class="form-id">
+        <form 
+        id="form-id" class="form-id">
           <router-view :initial-userInform="userInform"
           @change-delivery="changeDeliveryContent"
           @render-new-data="renderNewDataContent"
@@ -78,11 +79,9 @@ export default {
     goNextPage () {
       if (this.currentFormNumber === 1) {
         this.$router.push({name: "2"})
-        console.log(this.currentFormNumber, this.$route)
       }
       if (this.currentFormNumber === 2) {
-        this.$router.push({name: 3})
-        console.log(this.currentFormNumber, this.$route)
+        this.$router.push({name: '3'})
       }
       this.currentFormNumber ++
 
@@ -111,7 +110,7 @@ export default {
       if (this.currentFormNumber !== 3) {
         next.innerText = '下一步'
       }
-    }
+    },
   },
   updated() {
     this.btnChangeStyle()
@@ -175,12 +174,12 @@ export default {
   }
   .back-to {
     flex-grow: 1;
-    color: $black;
+    color: var(--main-font-color);
     span {
       margin-left: 10px;
     }
     &:hover {
-      border: 1px solid $black;
+      border: 1px solid var(--main-font-color);
     }
   }
 }

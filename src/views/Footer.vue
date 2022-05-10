@@ -41,7 +41,6 @@
           </div>
         </div>
       </div>
-      <div>This is the test.</div>
     </div>
   </footer>
 </template>
@@ -57,7 +56,7 @@ footer{
   margin: 0 auto;
   padding-top: 70px;
   height: 284px;
-  background-color: $footer-bc-color;
+  background-color: var(--footer-bc-color);
   .footer-container {
     margin: 0 auto;
     width: 85%;
@@ -81,7 +80,7 @@ footer{
         font-weight: border;
         font-family: 'Noto Sans TC', sans-serif;
         font-weight: 700;
-        color: $black;
+        color: var(--main-font-color);
       }
     }
     .footer-item {
@@ -95,7 +94,7 @@ footer{
         font-weight: 700;
         font-size: 24px;
         line-height: 24px;
-        color: $black;
+        color: var(--main-font-color);
       }
       .item-about {
         @include flex (
@@ -109,7 +108,7 @@ footer{
           color: $form-font-color;
           margin-bottom: 5px;
           &:hover {
-            color: $orange;
+            color: var(--label-focus);
           }
         }
         .social-media-icons {
@@ -120,9 +119,9 @@ footer{
           );
           .icon {
             font-size: 20px;
-            color: $form-font-color;
+            color: var(--footer-about-font-color);
             &:hover {
-              color: $orange;
+              color: var(--label-focus);
             }
           }
         }

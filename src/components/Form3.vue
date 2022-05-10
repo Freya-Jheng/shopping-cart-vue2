@@ -54,12 +54,10 @@ export default {
     newCreditData: {
       handler: function renderCredit() {
         this.$emit('render-credit', this.newCreditData)
-        console.log('form 2')
       }
     },
     deep: true,
   }
-
 }
 </script>
 
@@ -69,23 +67,27 @@ form {
   width: 100%;
   .wrapper {
     width: 100%;
+    .inform-title {
+      color: var(--main-font-color);
+    }
     .payment-form {
       width: 100%;
       margin-top: 20px;
       .form-container {
         width: 100%;
-        color: $form-font-color;
+        color: var(--main-font-color);
         @include grid (50% 50%, repeat(3, 1fr), 20px);
         .form-row {
           @include flex (column, center, flex-start);
           gap: 5px;
         }
         .form-space{
+          background-color: var(--main-bg-color);
           height: 40px;
           border-radius: 4px;
-          border: 1px solid $form-border;
+          border: 1px solid var(--form-border);
           &::placeholder {
-            color: $form-placeholder;
+            color: #{$form-placeholder};
           }
         }
         .row-1, .row-2 {
