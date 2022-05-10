@@ -58,6 +58,7 @@ export default {
   .main-title {
     .title-checkout {
       cursor: default;
+      color: var(--main-font-color);
     }
   }
   .stepper-panel {
