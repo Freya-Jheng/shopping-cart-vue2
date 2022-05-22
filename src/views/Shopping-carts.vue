@@ -43,7 +43,8 @@
 <script>
 import paint1 from '../assets/images/paint1@2x.jpg'
 import paint2 from '../assets/images/paint2@2x.png'
-import uuid from 'uuid/v4'
+import { v4 as uuidv4 } from 'uuid';
+
 
 export default {
   props: {
@@ -56,7 +57,7 @@ export default {
     return {
       products: [
         {
-          id: uuid(),
+          id: uuidv4(),
           name: '破壞補丁牛仔褲',
           image: paint1,
           unit: 1,
@@ -64,7 +65,7 @@ export default {
           Number: 3999,
         },
         {
-          id: uuid(),
+          id: uuidv4(),
           name: '刷色直筒牛仔褲',
           image: paint2,
           unit: 1,

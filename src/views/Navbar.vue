@@ -59,34 +59,34 @@
 </template>
 
 <script>
-import uuid from "uuid/v4";
+import { v4 as uuidv4 } from 'uuid';
 
 export default {
   data() {
     return {
       navItems: [
         {
-          id: uuid(),
+          id: uuidv4(),
           title: "男裝",
           link: "#",
         },
         {
-          id: uuid(),
+          id: uuidv4(),
           title: "女裝",
           link: "#",
         },
         {
-          id: uuid(),
+          id: uuidv4(),
           title: "最新消息",
           link: "#",
         },
         {
-          id: uuid(),
+          id: uuidv4(),
           title: "客製商品",
           link: "#",
         },
         {
-          id: uuid(),
+          id: uuidv4(),
           title: "聯繫我們",
           link: "#",
         },
